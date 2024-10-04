@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --primary: 255 0 255;
+        --secondary: 52 0 24
+    }
+
+    :root[data-theme = "dark"]{
+        --primary: 140 240 30;
+        --secondary: 12 5 240
+    }
+
+}
+
