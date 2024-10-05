@@ -1,10 +1,10 @@
-<div class="bg-primary grid grid-cols-3">
-    <img src="../../assets/Frame.svg" >
-    <ul class="flex gap-2">
-        <li class="hover:bg-red-600" *ngFor="let pageName of pages">{{pageName}}</li>
+<div class="bg-primary flex justify-between items-center px-5">
+    <img src="../../assets/Frame.svg" class="" >
+    <ul class="flex gap-2 items-center">
+        <li class="hover:bg-red-600 text-textPrimary " *ngFor="let pageName of pages">{{pageName}}</li>
     </ul>
 
-    <button class="bg-blue-950"> Theme </button>
-    
+    <theme-toggle></theme-toggle>
+
 </div>
 

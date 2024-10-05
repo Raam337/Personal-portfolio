@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ContentfulService } from './services/contentful.service';
 import { ProjectsComponent } from './projects/projects.component';
 import { ThemeToggleComponent } from './navbar/theme-toggle/theme-toggle.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ThemeToggleComponent } from './navbar/theme-toggle/theme-toggle.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [ContentfulService],
   bootstrap: [AppComponent]

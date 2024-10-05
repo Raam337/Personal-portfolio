@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors: {
         primary: "rgb(var(--primary))",
-        secondary: "rgb(var(--secondary))"
+        secondary: "rgb(var(--secondary))",
+        textPrimary: "rgb(var(--textPrimary))"
       }
     },
   },
