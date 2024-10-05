@@ -3,17 +3,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    :root {
-        --primary: 255 0 255;
-        --secondary: 52 0 24;
-        --textPrimary: 0 0 0;
+@layer base { 
+    :root {                    /*White theme */
+        --primary: #7d55ff;
+        --secondary: #68C49B;
+        --accent: #32FB32;
+        --background: #e3e8ff;
+
+        --textMain: #141414;
+        --textContrast: #F5F5F5;
     }
 
-    :root.darkTheme{
-        --primary: 10 10 10;
-        --secondary: 12 5 240;
-        --textPrimary: 255 255 255;
+    :root.darkTheme{            /*Dark theme */
+        --primary: #6E8AFC;
+        --secondary: #68C49B;
+        --accent: #32FB32;
+        --background: #03081E;
+
+        --textMain: #F5F5F5;
+        --textContrast: #141414;
     }
 
 }

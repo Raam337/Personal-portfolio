@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })

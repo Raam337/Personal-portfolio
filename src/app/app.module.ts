@@ -8,13 +8,15 @@ import { ContentfulService } from './services/contentful.service';
 import { ProjectsComponent } from './projects/projects.component';
 import { ThemeToggleComponent } from './navbar/theme-toggle/theme-toggle.component';
 import { FormsModule } from '@angular/forms';
+import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ProjectsComponent,
-    ThemeToggleComponent
+    ThemeToggleComponent,
+    ResumeComponent
   ],
   imports: [
     BrowserModule,
