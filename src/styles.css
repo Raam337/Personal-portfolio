@@ -26,3 +26,6 @@
 
 }
 
+.glass{
+    @apply rounded-[16px] bg-clip-padding backdrop-blur-md border border-primary-700
+}

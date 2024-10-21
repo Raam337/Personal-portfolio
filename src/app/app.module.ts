@@ -9,6 +9,9 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ThemeToggleComponent } from './navbar/theme-toggle/theme-toggle.component';
 import { FormsModule } from '@angular/forms';
 import { ResumeComponent } from './resume/resume.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AnimatedBackgroundComponent } from './home-page/animated-background/animated-background.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ResumeComponent } from './resume/resume.component';
     NavbarComponent,
     ProjectsComponent,
     ThemeToggleComponent,
-    ResumeComponent
+    ResumeComponent,
+    LandingPageComponent,
+    HomePageComponent,
+    AnimatedBackgroundComponent
   ],
   imports: [
     BrowserModule,

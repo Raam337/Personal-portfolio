@@ -14,6 +14,7 @@ function generateShades(variable) {
     800: `color-mix(in srgb, var(${variable}), black 50%)`,
     900: `color-mix(in srgb, var(${variable}), black 70%)`,
   };
+
   return shadeObject
 }
 
