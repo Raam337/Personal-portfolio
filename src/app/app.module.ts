@@ -12,6 +12,7 @@ import { ResumeComponent } from './resume/resume.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AnimatedBackgroundComponent } from './home-page/animated-background/animated-background.component';
+import { TagCloudComponent } from './home-page/tag-cloud/tag-cloud.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AnimatedBackgroundComponent } from './home-page/animated-background/ani
     ResumeComponent,
     LandingPageComponent,
     HomePageComponent,
-    AnimatedBackgroundComponent
+    AnimatedBackgroundComponent,
+    TagCloudComponent
   ],
   imports: [
     BrowserModule,

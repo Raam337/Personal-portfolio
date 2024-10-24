@@ -3,12 +3,44 @@
 
   <div class="absolute top-20 left-20 size-fit p-5 pr-20 glass text-textMain">
     <h3 class="text-xl mb-4 font-bold">Web developer</h3>
-    <h1 class="text-8xl mb-6">Robert Feldmanis</h1>
-    <p class="text-xl">
+    <h1 class="text-4xl lg:text-8xl mb-6">Robert Feldmanis</h1>
+    <p class="text-sm lg:text-xl md:text-lg">
       Developing efficient, scaleable systems with dedicated technology stack
     </p>
     <div class="absolute inset-0 bg-primary opacity-20 rounded-[16px] -z-10"></div>
   </div>
+</section>
 
+
+
+<section class="bg-background w-full h-screen flex items-center justify-center">
+  <div class="grid grid-cols-2 items-center gap-32">
+    <tag-cloud class=""></tag-cloud>
+    <div class="text-textMain text-4xl space-y-8 items-center indent-20">
+      <p>Completed projects: 7</p>
+      <p>Unique tools used: 16</p>
+      <p>Hours spent: 951</p>
+
+      <p class="pt-[100px]">Explore Projects -></p>
+    </div>
+
+  </div>
   
+
+</section>
+
+<section class="bg-background-400 w-full h-screen flex justify-center">
+
+
+  <div class="grid grid-cols-[300px,1fr] grid-rows-4 flex-grow p-5">
+    <div class=" bg-white"></div>
+    <div class=" bg-slate-500 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 justify-between">
+      <div class="text-textMain glass grow h-32 m-2" *ngFor="let skill of skills">
+        {{skill.fields["skillName"]}}
+
+      </div>
+    </div>
+
+  </div>
+
 </section>
