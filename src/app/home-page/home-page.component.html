@@ -31,16 +31,41 @@
 
 <section class="bg-background-400 w-full h-screen flex justify-center">
 
+  <!-- Main grid of skills -->
+  <div class="grid grid-cols-[300px,1fr] auto-rows-max flex-grow p-5 gap-10">   
 
-  <div class="grid grid-cols-[300px,1fr] grid-rows-4 flex-grow p-5">
-    <div class=" bg-white"></div>
-    <div class=" bg-slate-500 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 justify-between">
-      <div class="text-textMain glass grow h-32 m-2" *ngFor="let skill of skills">
-        {{skill.fields["skillName"]}}
+    <!-- Skill category -->
+    <div class="text-textMain text-5xl font-bold place-self-center pl-8">
+      <p>Frontend & Design</p>
+    </div>
+
+    <!-- Skill cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 
+                justify-between">
+      <div *ngFor="let skill of skills"
+      class="text-textMain glass grow h-32 m-2 flex flex-col items-center justify-center">
+        <img src="https://placehold.co/80" class="size-[80px]">
+        <div>{{skill["skillName"]}}</div>
 
       </div>
     </div>
 
+
+    <div class=" bg-white size-[200px]"></div>
+    <div class="bg-slate-500 
+                grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 
+                justify-between">
+    </div>
+
   </div>
+  <!-- ; FilterField:'type'; FilterType:'back' -->
+
+<div *filteredFor="let skill of skills">
+  {{ skill.skillName }}
+</div>
+
+
+
+
 
 </section>

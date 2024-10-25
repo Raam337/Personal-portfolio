@@ -13,6 +13,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AnimatedBackgroundComponent } from './home-page/animated-background/animated-background.component';
 import { TagCloudComponent } from './home-page/tag-cloud/tag-cloud.component';
+import { FilteredForOfDirective } from './services/filtered-for-of.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TagCloudComponent } from './home-page/tag-cloud/tag-cloud.component';
     LandingPageComponent,
     HomePageComponent,
     AnimatedBackgroundComponent,
-    TagCloudComponent
+    TagCloudComponent,
+    FilteredForOfDirective
   ],
   imports: [
     BrowserModule,

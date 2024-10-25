@@ -10,14 +10,14 @@ import { Entry } from 'contentful';
 
 export class HomePageComponent implements OnInit {
 
-  skills : Entry<any>[] = [];
+  skills : any[] = [];
 
   constructor(private contentful:ContentfulService){}
 
   async ngOnInit():Promise<void> {
-    this.skills = await this.contentful.getSkills()
-    console.log(this.skills[0])
-    
+    const data = await this.contentful.getSkills()
+    data.forEach(entry =>{ this.skills.push(entry.fields) })
+    console.log(this.skills)
   }
 
 }
