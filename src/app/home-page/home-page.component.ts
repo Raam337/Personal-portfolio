@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit, AfterViewInit, ViewChild, AfterContentInit } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'home-page',
@@ -10,14 +11,30 @@ import { Entry } from 'contentful';
 
 export class HomePageComponent implements OnInit {
 
-  skills : any[] = [];
+  skills: any[] | undefined;
+
+  skillSections = [
+    {skillField: "Front end & Design", filter:"front"},
+    {skillField: "Backend & Database", filter:"back"},
+    {skillField: "Dev tools", filter:"tools"},
+    {skillField: "Additional Skills", filter:"extra"}
+  ]
 
   constructor(private contentful:ContentfulService){}
 
-  async ngOnInit():Promise<void> {
-    const data = await this.contentful.getSkills()
-    data.forEach(entry =>{ this.skills.push(entry.fields) })
-    console.log(this.skills)
+  ngOnInit(){
+    this.contentful.getSkills()
+    .subscribe({
+      next:(data) => {
+        // data.items.forEach( item => this.skills?.push(item.fields));
+        console.log(data)
+        let temp: any[] | undefined =[]
+        data.items.forEach( item => temp?.push(item.fields))
+        this.skills = temp
+        console.log("Home component, skills:" , this.skills);
+      }
+    })
+
   }
 
 }

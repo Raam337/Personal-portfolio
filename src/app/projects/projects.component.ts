@@ -11,12 +11,12 @@ export class ProjectsComponent implements OnInit{
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit(){
-    console.log(this, " initialising")
-    this.contentfulService.getSkills()
-    .then(skills => console.log(skills))
+    // console.log(this, " initialising")
+    // this.contentfulService.getSkills()
 
-    this.contentfulService.getProjects()
-    .then(skills => console.log(skills))
+
+    // this.contentfulService.getProjects()
+    // .then(skills => console.log(skills))
   }
 
 }

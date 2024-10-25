@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createClient, Entry } from 'contentful';
+import { from, Observable } from 'rxjs';
 
 const CONFIG = {
   space: 'bnwtu0is0u9l',
@@ -19,11 +20,14 @@ export class ContentfulService {
 
   constructor() {}
 
-  getSkills(query?: object): Promise<Entry<any>[]> {
+  getSkills(query?: object){
     const requestParameter = Object.assign({content_type: CONFIG.contentTypeIds.skill}, query);
 
-    return this.cdaClient.getEntries(requestParameter)
-    .then(res => res.items);
+    // return this.cdaClient.getEntries(requestParameter)
+    // .pipe(data => return data)
+
+    return from(this.cdaClient.getEntries(requestParameter))
+    
   }
 
   getProjects(query?: object): Promise<Entry<any>[]> {
