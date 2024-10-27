@@ -1,3 +1,4 @@
+
 <section class="relative">
   <animated-background class="w-full h-[calc(100vh-81px)]"></animated-background>
 
@@ -13,7 +14,7 @@
 
 
 
-<section class="bg-background w-full h-screen flex items-center justify-center">
+<section class="snap-start bg-background w-full h-screen flex items-center justify-center">
   <div class="grid grid-cols-2 items-center gap-32">
     <tag-cloud class=""></tag-cloud>
     <div class="text-textMain text-4xl space-y-8 items-center indent-20">
@@ -29,42 +30,44 @@
 
 </section>
 
-<section class="w-full  flex flex-col justify-center relative">
+<section class=" snap-start w-full flex flex-col justify-center relative">
 
-<svg class="background--custom bg-background" id="demo" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path class="path0" fill="#FFFF00" fill-opacity="0.7" d="M-100 -100L200 -100L200 50L-100 50Z" />
-    <path class="path1" fill="#00FFFF" fill-opacity="0.7" d="M-100 -100L200 -100L200 50L-100 50Z" />
-    <path class="path2" fill="#FF00FF" fill-opacity="0.2" d="M-100 -100L200 -100L200 20L-100 20Z" />
-</svg>
+<div class="text-textMain text-6xl place-self-center font-bold my-10">Skills</div>
 
+<div class="absolute size-full -z-10">
+  <svg class="background--custom bg-background" id="demo" viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%">
+    <path class="path0 fill-primary-800"  d="M-100 -100L200 -100L200 80L-100 80Z" />
+    <path class="path1 fill-primary-900" d="M-100 -100L200 -100L200 50L-100 50Z" />
+    <path class="path2 fill-background"   d="M-100 -100L200 -100L200 15L-100 15Z" />
+  </svg>
+</div>
   <!-- Main grid of skills -->
-<div class="absolute size-full">
-  <div *ngFor="let section of skillSections"  
-       class="grid grid-cols-[300px,1fr] auto-rows-max flex-grow px-[5%] py-5 gap-10">   
+  <div class="size-full">
+    <div *ngFor="let section of skillSections"  
+        class="grid grid-cols-1 md:grid-cols-[200px,1fr] lg:grid-cols-[300px,1fr] auto-rows-max flex-grow px-[5%] py-5 gap-10">   
 
-    <!-- Skill category -->
-    <div class="text-textMain text-5xl font-bold place-self-center pl-8">
-      <p>{{section.skillField}}</p>
-    </div>
+      <!-- Skill category -->
+      <div class="text-textMain text-5xl font-bold place-self-center justify-self-start sm:justify-self-center">
+        <p>{{section.skillField}}</p>
+      </div>
 
 
-    <!-- Skill cards -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2
-                justify-between">
-      <div *filteredFor="let skill of skills;  FilterField:'type'; FilterType:section.filter; SortBy:'prio' "
-      class="text-textMain glass grow h-32 m-2 flex flex-col items-center justify-center">
+      <!-- Skill cards -->
+      <div class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-2
+                  justify-between">
+        <div *filteredFor="let skill of skills;  FilterField:'type'; FilterType:section.filter; SortBy:'prio' "
+        class="text-textMain glass grow h-32 m-2 flex flex-col items-center justify-center
+              transition-all ease-in-out hover:scale-110 duration-200">
 
-        <img src={{skill.icon.fields.file.url}} class="size-[60px]	">
-        <div>{{skill["skillName"]}}</div>
+          <img src={{skill.icon.fields.file.url}} class="size-[60px]	">
+          <div>{{skill["skillName"]}}</div>
+          <div class="absolute inset-0 bg-primary opacity-20 rounded-[16px] -z-10 "></div>
 
+        </div>
+        
       </div>
     </div>
-</div>
 
   </div>
 
-
-
-
 </section>
-

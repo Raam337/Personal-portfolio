@@ -11,21 +11,21 @@
   
   /* Individual path animations */
   .path0 {
-    animation: path0 5s linear infinite alternate;
+    animation: path0 9s linear infinite alternate;
   }
   
   .path1 {
-    animation: path1 12.5s linear infinite alternate;
+    animation: path1 15.5s linear infinite alternate;
   }
   
   .path2 {
-    animation: path2 30s linear infinite alternate;
+    animation: path2 10s linear infinite alternate;
   }
   
   /* Keyframe animations */
   @keyframes path0 {
-    0% { transform: rotate(-10deg); }
-    100% { transform: rotate(10deg); }
+    0% { transform: rotate(-50deg); }
+    100% { transform: rotate(50deg); }
   }
   
   @keyframes path1 {
@@ -34,7 +34,16 @@
   }
   
   @keyframes path2 {
-    0% { transform: rotate(40deg); }
-    100% { transform: rotate(-40deg); }
+    0% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
   }
   
+
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
