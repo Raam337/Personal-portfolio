@@ -1,0 +1,40 @@
+/* Background styling for SVG */
+.background--custom {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Shared path styling */
+  path {
+    transform-origin: 50% 0%;
+  }
+  
+  /* Individual path animations */
+  .path0 {
+    animation: path0 5s linear infinite alternate;
+  }
+  
+  .path1 {
+    animation: path1 12.5s linear infinite alternate;
+  }
+  
+  .path2 {
+    animation: path2 30s linear infinite alternate;
+  }
+  
+  /* Keyframe animations */
+  @keyframes path0 {
+    0% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+  }
+  
+  @keyframes path1 {
+    0% { transform: rotate(-30deg); }
+    100% { transform: rotate(30deg); }
+  }
+  
+  @keyframes path2 {
+    0% { transform: rotate(40deg); }
+    100% { transform: rotate(-40deg); }
+  }
+  

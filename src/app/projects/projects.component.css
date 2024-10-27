@@ -1,8 +1,0 @@
-html {
-    scroll-snap-type: y mandatory; /* Enable snap behavior on the main page */
-    scroll-behavior: smooth; /* Smooth scrolling */
-  }
-  section {
-    scroll-snap-align: start; /* Each section snaps to the start of the viewport */
-  }
-  

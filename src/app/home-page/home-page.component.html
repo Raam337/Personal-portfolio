@@ -29,9 +29,16 @@
 
 </section>
 
-<section class="bg-background w-full  flex flex-col justify-center">
+<section class="w-full  flex flex-col justify-center relative">
+
+<svg class="background--custom bg-background" id="demo" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <path class="path0" fill="#FFFF00" fill-opacity="0.7" d="M-100 -100L200 -100L200 50L-100 50Z" />
+    <path class="path1" fill="#00FFFF" fill-opacity="0.7" d="M-100 -100L200 -100L200 50L-100 50Z" />
+    <path class="path2" fill="#FF00FF" fill-opacity="0.2" d="M-100 -100L200 -100L200 20L-100 20Z" />
+</svg>
 
   <!-- Main grid of skills -->
+<div class="absolute size-full">
   <div *ngFor="let section of skillSections"  
        class="grid grid-cols-[300px,1fr] auto-rows-max flex-grow px-[5%] py-5 gap-10">   
 
@@ -42,20 +49,22 @@
 
 
     <!-- Skill cards -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 
+    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2
                 justify-between">
       <div *filteredFor="let skill of skills;  FilterField:'type'; FilterType:section.filter; SortBy:'prio' "
       class="text-textMain glass grow h-32 m-2 flex flex-col items-center justify-center">
 
-        <img src={{skill.icon.fields.file.url}} class="size-[80px]	">
+        <img src={{skill.icon.fields.file.url}} class="size-[60px]	">
         <div>{{skill["skillName"]}}</div>
 
       </div>
     </div>
-
+</div>
 
   </div>
 
 
 
+
 </section>
+
