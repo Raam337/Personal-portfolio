@@ -13,14 +13,39 @@
 </section>
 
 
+<section class="snap-start w-full h-screen relative flex flex-col items-center">
+  <div class="text-textMain text-6xl font-bold my-12 justify-start">About me</div>
+  <div class="grid grid-cols-[30%,50%] mx-10 justify-center mt-10">
+    <img class="size-[300px] self-center" src="../../assets/Humaaans.png" >
+    <article class="text-textMain text-lg text-justify">
+      <p class="relative">Hello there! I am Robert - a passionate front-end developer with a knack for solving complex problems 
+        through <span class="skew-underline">elegant</span> and <span class="skew-underline">efficient</span> code.
+        My journey in development is driven by a love for learning and mastering new concepts, <span class="skew-underline">  continuously challenging</span> myself to reach new heights.
+      </p>
+      <br>
+      <p>
+        My development style revolves around breaking down challenges into manageable pieces and building
+        <span class="skew-underline">flexible solutions</span> that can grow over time.
+      </p>
+      <br>
+      <p>
+        Outside of coding, I am a sports enthusiast, an avid gamer,
+        and love hands-on engineering and DIY product design.
+      </p>
+    </article>
+  </div>
+
+</section>
+
+
 
 <section class="snap-start bg-background w-full h-screen flex items-center justify-center">
   <div class="grid grid-cols-2 items-center gap-32">
     <tag-cloud class=""></tag-cloud>
     <div class="text-textMain text-4xl space-y-8 items-center indent-20">
-      <p>Completed projects: 7</p>
-      <p>Unique tools used: 16</p>
-      <p>Hours spent: 951</p>
+      <p class="atext">Completed projects: 7</p>
+      <p class="atext">Unique tools used: 16</p>
+      <p class="atext">Hours spent: 951</p>
 
       <p class="pt-[100px]">Explore Projects -></p>
     </div>
@@ -32,42 +57,43 @@
 
 <section class=" snap-start w-full flex flex-col justify-center relative">
 
-<div class="text-textMain text-6xl place-self-center font-bold my-10">Skills</div>
+  <div class="text-textMain text-6xl place-self-center font-bold my-10">Skills</div>
 
-<div class="absolute size-full -z-10">
-  <svg class="background--custom bg-background" id="demo" viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%">
-    <path class="path0 fill-primary-800"  d="M-100 -100L200 -100L200 80L-100 80Z" />
-    <path class="path1 fill-primary-900" d="M-100 -100L200 -100L200 50L-100 50Z" />
-    <path class="path2 fill-background"   d="M-100 -100L200 -100L200 15L-100 15Z" />
-  </svg>
-</div>
-  <!-- Main grid of skills -->
-  <div class="size-full">
-    <div *ngFor="let section of skillSections"  
-        class="grid grid-cols-1 md:grid-cols-[200px,1fr] lg:grid-cols-[300px,1fr] auto-rows-max flex-grow px-[5%] py-5 gap-10">   
+  <div class="absolute size-full -z-10">
+    <svg class="background--custom bg-background" id="demo" viewBox="0 0 100 100" preserveAspectRatio="none" width="100%" height="100%">
+      <path class="path0 fill-primary-800"  d="M-100 -100L200 -100L200 80L-100 80Z" />
+      <path class="path1 fill-primary-900" d="M-100 -100L200 -100L200 50L-100 50Z" />
+      <path class="path2 fill-background"   d="M-100 -100L200 -100L200 15L-100 15Z" />
+    </svg>
+  </div>
+    <!-- Main grid of skills -->
+    <div class="size-full">
+      <div *ngFor="let section of skillSections"  
+          class="grid grid-cols-1 md:grid-cols-[200px,1fr] lg:grid-cols-[300px,1fr] auto-rows-max flex-grow px-[5%] py-5 gap-10">   
 
-      <!-- Skill category -->
-      <div class="text-textMain text-5xl font-bold place-self-center justify-self-start sm:justify-self-center">
-        <p>{{section.skillField}}</p>
-      </div>
-
-
-      <!-- Skill cards -->
-      <div class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-2
-                  justify-between">
-        <div *filteredFor="let skill of skills;  FilterField:'type'; FilterType:section.filter; SortBy:'prio' "
-        class="text-textMain glass grow h-32 m-2 flex flex-col items-center justify-center
-              transition-all ease-in-out hover:scale-110 duration-200">
-
-          <img src={{skill.icon.fields.file.url}} class="size-[60px]	">
-          <div>{{skill["skillName"]}}</div>
-          <div class="absolute inset-0 bg-primary opacity-20 rounded-[16px] -z-10 "></div>
-
+        <!-- Skill category -->
+        <div class="text-textMain text-5xl font-bold place-self-center  justify-self-center xs:justify-self-start">
+          <p>{{section.skillField}}</p>
         </div>
-        
+
+
+        <!-- Skill cards -->
+        <div class="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-2
+                    justify-between">
+          <div *filteredFor="let skill of skills;  FilterField:'type'; FilterType:section.filter; SortBy:'prio' "
+          class="text-textMain glass grow h-32 m-2 flex flex-col items-center justify-center
+                transition-all ease-in-out hover:scale-110 duration-200">
+
+            <img src={{skill.icon.fields.file.url}} class="size-[60px]	">
+            <div>{{skill["skillName"]}}</div>
+            <div class="absolute inset-0 bg-primary opacity-20 rounded-[16px] -z-10 "></div>
+
+          </div>
+          
+        </div>
       </div>
+
     </div>
 
-  </div>
-
 </section>
+

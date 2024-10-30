@@ -8,11 +8,13 @@ import { ContentfulService } from '../services/contentful.service';
 })
 export class ProjectsComponent implements OnInit{
 
+  sizes = [ [2,2], [1,2], [2,3], [1,2], [2,2], [2,2] ]
+
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit(){
     // console.log(this, " initialising")
-    // this.contentfulService.getSkills()
+    // this.contentfulService.getSkills() 
 
 
     // this.contentfulService.getProjects()

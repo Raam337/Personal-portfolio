@@ -31,6 +31,9 @@ export const theme = {
 
       textMain: generateShades("--textMain"),
       textContrast: generateShades("--textConstrat"),
+    },
+    fontFamily : {
+      sans: ["Exo", "sans-serif"]
     }
   },
 };

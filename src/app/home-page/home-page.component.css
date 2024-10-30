@@ -47,3 +47,50 @@
   .hide-scrollbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
+
+  .skew-underline{
+    position: relative;
+    display: inline-block; 
+  }
+
+  .skew-underline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    width: calc(100% + 5px);
+    height: 20%;
+    transform: skew(-20deg) translateX(-50%);
+    z-index: -1;
+    @apply bg-accent-700
+  }
+
+
+
+
+
+.atext {
+  border-right: solid 3px rgba(0,255,0,.75);
+  white-space: nowrap;
+  overflow: hidden;    
+}
+
+/* Animation */
+.atext {
+  animation: animated-text 4s steps(40,end) 1s 1 normal both,
+             animated-cursor 2000ms steps(29,end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 472px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(0,255,0,.75);}
+  to{border-right-color: transparent;}
+}
