@@ -10,6 +10,12 @@ export class ProjectsComponent implements OnInit{
 
   sizes = [ [2,2], [1,2], [2,3], [1,2], [2,2], [2,2] ]
 
+  projects = []
+
+  selectedProject = true
+
+  skills=["Javascript","React","Firebase","Tailwind","Abstract"]
+
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit(){
