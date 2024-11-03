@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   pages: String[] = ["Home", "Projects", "Resume", "About", "Blog"];
+
+  constructor(private router: Router) {}
+
+  isHomeRoute(): boolean {
+    return this.router.url === '/home';
+  }
 
 }

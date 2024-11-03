@@ -1,11 +1,20 @@
-<section class="snap-start w-full h-screen relative flex flex-col items-center">
+<section class="w-full h-screen relative flex flex-col items-center">
   <div class="text-textMain text-6xl font-bold my-12 justify-start">Projects</div>
-  <div class="grid grid-cols-5 grid-rows-5 gap-4 size-[800px]">
-    <div *ngFor="let item of sizes" 
-         class="bg-background-300 size-full" 
-         [ngClass]="[ 'col-span-' + item[0],
-                      'row-span-' + item[1]]">
-      {{item[0] + " " + item[1]}}
+  <div class="grid grid-cols-5 grid-rows-5 gap-4 w-[70%]">    <!-- Grid component -->
+    <div *ngFor="let project of projects; index as i" 
+         class="bg-primary-600 flex flex-col p-[25px] rounded-[40px] gap-2 hover:scale-105 transition-transform"  
+         [ngClass]="[ 'col-span-' + sizes[i][0],'row-span-' + sizes[i][1] ]"
+         (click) = "handleCardClick(i)">   <!-- Card component -->
+      <div>
+        <img [src]="project.images[0].fields.file.url ?? 'https://placehold.co/600x400'" 
+             class="rounded-[15px]"
+             [ngClass] = "[ sizes[i][0]>=sizes[i][1] ? 'aspect-video':'aspect-square']">
+      </div>
+      <h1 class="text-3xl font-bold text-textMain indent-3 mt-2">{{project.title}}</h1>
+      <p class="text-textMain my-2">{{project.shortDescription}}</p>
+      <div class="flex flex-wrap justify-center gap-3 py-2" [class.hidden]="sizes[i][0] < 2" >
+        <div class="bg-secondary rounded-full px-4 py-1 text-xs drop-shadow-lg" *ngFor="let skill of project.skills">{{skill.fields.skillName}}</div>
+      </div>
     </div>
 
     <!-- <div class="bg-background-300 size-full col-span-2 row-span-4" >2x2</div> -->
@@ -14,32 +23,50 @@
 
   </div>
 
-  <dialog *ngIf="selectedProject" 
-          class="modal w-[90%] h-[80%] flex flex-col">
 
+    <!-- Modal window -->
+  <dialog *ngIf="selectedProject !== null" 
+          class="modal w-[90%] h-fit py-[60px] flex flex-col z-20">
+    <img (click)="handleModalClose()" src="../../assets/icons8-close.svg" class="absolute right-3 top-3 hover:scale-105">
     <div class="grid grid-cols-1 md:grid-cols-[60%,40%] h-full items-start md:items-center">
-      <div class="bg-slate-400 aspect-video hidden md:block">image</div>
+      <!-- <div class="bg-slate-400 aspect-video hidden md:block">image</div> -->
+      <carousel [imageList]="projects?.[selectedProject].images"></carousel>
       <div class="grid grid-cols-1 gap-y-5 justify-items-center px-5">
 
         <div class="text-4xl my-5">
-          Project name
+          {{projects?.[selectedProject].title}}
         </div>
         <div class="md:hidden bg-slate-400 aspect-video size-full">image</div>
         <div class="flex flex-wrap gap-3 justify-center">
-          <div class="bg-secondary rounded-full px-4 py-1" *ngFor="let skill of skills">{{skill}}</div>
+          <div class="bg-secondary rounded-full px-4 py-1" *ngFor="let skill of projects?.[selectedProject].skills">{{skill.fields.skillName}}</div>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque ab, reprehenderit assumenda placeat odio numquam ducimus fugiat fuga ea vitae labore delectus dolore. Dolorem nesciunt vitae ad asperiores aspernatur nihil.
-          <br><br>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus nemo laboriosam nulla consequatur eaque at sit amet, ea nam ipsa deleniti necessitatibus vitae voluptas nobis provident quis maiores quo sint?
-        </p>
+        <article *ngFor="let section of projects?.[selectedProject].description.content">
+          {{section.content[0].value}}
+        </article>
         
         <div class="grid grid-cols-2 gap-3 justify-around w-full">
-          <button class="bg-primary rounded-[15px] text-2xl px-8 py-4">GitHub</button>
-          <button class="bg-secondary rounded-[15px] text-2xl px-8 py-4">Website</button>
+          <a href="{{projects?.[selectedProject].gitLink}}" target="_blank">
+            <button class="bg-primary rounded-[15px] text-2xl px-8 py-4 size-full">
+              GitHub
+            </button>
+          </a>
+          
+          <a href="{{projects?.[selectedProject].websiteLink}}" target="_blank">
+            <button class="bg-secondary rounded-[15px] text-2xl px-8 py-4 size-full">
+              Website
+            </button>
+          </a>
+          
         </div>
       </div>
     </div>
 
   </dialog>
 
+  <div class="fixed inset-0 backdrop-blur-sm z-10" 
+       *ngIf="selectedProject !== null" 
+       (click)="handleModalClose()">
+  </div>
+
 </section>
+

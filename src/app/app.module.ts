@@ -14,6 +14,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AnimatedBackgroundComponent } from './home-page/animated-background/animated-background.component';
 import { TagCloudComponent } from './home-page/tag-cloud/tag-cloud.component';
 import { FilteredForOfDirective } from './services/filtered-for-of.directive';
+import { CarouselComponent } from './projects/carousel/carousel.component';
+import { NgxSplideModule } from 'ngx-splide';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { FilteredForOfDirective } from './services/filtered-for-of.directive';
     HomePageComponent,
     AnimatedBackgroundComponent,
     TagCloudComponent,
-    FilteredForOfDirective
+    FilteredForOfDirective,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    NgxSplideModule
   ],
   providers: [ContentfulService],
   bootstrap: [AppComponent]

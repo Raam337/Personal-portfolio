@@ -27,3 +27,5 @@
     max-width: 90%;
   }
   
+
+  .btn {  font-family: Arial, Helvetica, sans-serif;  text-transform: uppercase;}  .btn:hover .btn-slide-show-text1 {  margin-left: 65px;}  .btn-slide-show {  background: rgb(51, 51, 51);  width: 200px;  height: 50px;  overflow: hidden;  text-align: center;  transition: 0.4s;  cursor: pointer;  border-radius: 3px;  font-weight: 700;}  .btn-slide-show:hover .btn-slide-show-inner {  left: -130px;}  

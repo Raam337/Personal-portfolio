@@ -21,6 +21,9 @@ function generateShades(variable) {
 export const content = [
   "./src/**/*.{html,ts}"
 ];
+
+export const safelist = [ 'row-span-1','row-span-2','row-span-3']
+
 export const theme = {
   extend: {
     colors: {
@@ -36,6 +39,7 @@ export const theme = {
       sans: ["Exo", "sans-serif"]
     }
   },
+  
 };
 export const plugins = [];
 

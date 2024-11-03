@@ -23,18 +23,14 @@ export class ContentfulService {
   getSkills(query?: object){
     const requestParameter = Object.assign({content_type: CONFIG.contentTypeIds.skill}, query);
 
-    // return this.cdaClient.getEntries(requestParameter)
-    // .pipe(data => return data)
-
     return from(this.cdaClient.getEntries(requestParameter))
-    
+
   }
 
-  getProjects(query?: object): Promise<Entry<any>[]> {
+  getProjects(query?: object){
     const requestParameter = Object.assign({content_type: CONFIG.contentTypeIds.project}, query);
     
-    return this.cdaClient.getEntries(requestParameter)
-    .then(res => res.items);
+    return from(this.cdaClient.getEntries(requestParameter))
   }
 
 }

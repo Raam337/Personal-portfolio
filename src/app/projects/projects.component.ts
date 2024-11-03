@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
+import { Entry } from 'contentful';
 
 @Component({
   selector: 'projects',
@@ -10,21 +11,34 @@ export class ProjectsComponent implements OnInit{
 
   sizes = [ [2,2], [1,2], [2,3], [1,2], [2,2], [2,2] ]
 
-  projects = []
+  projects: any[] | undefined = []
 
-  selectedProject = true
+  selectedProject:number | null = null
 
   skills=["Javascript","React","Firebase","Tailwind","Abstract"]
 
-  constructor(private contentfulService: ContentfulService) { }
+  constructor(private contentful: ContentfulService) { }
 
   ngOnInit(){
-    // console.log(this, " initialising")
-    // this.contentfulService.getSkills() 
+    this.contentful.getProjects()
+    .subscribe({
+      next:(data) => {
+        let temp: any[] | undefined =[]
+        data.items.forEach( item => temp?.push(item.fields))
+        temp.sort( (a,b) => a.order - b.order)
+        this.projects = temp
+        console.log("Proejcts component, skills:" , this.projects);
+      }
+    })
+  }
 
+  handleCardClick(i:number){
+    console.log(i)
+    this.selectedProject = i
+  }
 
-    // this.contentfulService.getProjects()
-    // .then(skills => console.log(skills))
+  handleModalClose(){
+    this.selectedProject = null
   }
 
 }
