@@ -12,7 +12,7 @@ export class NavbarComponent {
   constructor(private router: Router) {}
 
   isHomeRoute(): boolean {
-    return this.router.url === '/home';
+    return this.router.url === '/Home';
   }
 
 }

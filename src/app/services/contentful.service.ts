@@ -7,7 +7,8 @@ const CONFIG = {
   accessToken:'lAJ55WqBZUPc3T8iSpspYEzKn6b1qQwJdHqJcZpIswE',
   contentTypeIds: {
     project: 'projectList',
-    skill: 'skills'
+    skill: 'skills',
+    resume: 'resume'
   },
 };
 
@@ -29,6 +30,12 @@ export class ContentfulService {
 
   getProjects(query?: object){
     const requestParameter = Object.assign({content_type: CONFIG.contentTypeIds.project}, query);
+    
+    return from(this.cdaClient.getEntries(requestParameter))
+  }
+
+  getResume(query?: object){
+    const requestParameter = Object.assign({content_type: CONFIG.contentTypeIds.resume}, query);
     
     return from(this.cdaClient.getEntries(requestParameter))
   }
