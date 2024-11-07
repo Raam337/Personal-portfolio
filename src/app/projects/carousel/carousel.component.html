@@ -1,5 +1,5 @@
 <splide [options]="{ type: 'loop', perPage: 1, keyboard: false }">
-    <splide-slide *ngFor="let image of imageList">
-        <img [src]="image.fields.file.url" alt="" />
+    <splide-slide *ngFor="let image of imageList" class="flex justify-items-center align-middle justify-center">
+        <img [src]="image.fields.file.url" alt=""/>
     </splide-slide>
 </splide>
