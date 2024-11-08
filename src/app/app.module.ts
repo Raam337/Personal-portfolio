@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,23 @@ import { TagCloudComponent } from './home-page/tag-cloud/tag-cloud.component';
 import { FilteredForOfDirective } from './services/filtered-for-of.directive';
 import { CarouselComponent } from './projects/carousel/carousel.component';
 import { NgxSplideModule } from 'ngx-splide';
+import { AnimateInViewDirective } from './services/animate-in-view.directive';
+
+
+export function removeLoadingSpinner() {
+  return () => {
+    const spinner = document.getElementById('loading-spinner');
+    if (spinner) {
+      let a = setTimeout(() => {
+        spinner.style.display = 'none';
+      }, 2);
+      
+    }
+  };
+}
+
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +46,8 @@ import { NgxSplideModule } from 'ngx-splide';
     AnimatedBackgroundComponent,
     TagCloudComponent,
     FilteredForOfDirective,
-    CarouselComponent
+    CarouselComponent,
+    AnimateInViewDirective
   ],
   imports: [
     BrowserModule,
@@ -37,7 +55,12 @@ import { NgxSplideModule } from 'ngx-splide';
     FormsModule,
     NgxSplideModule
   ],
-  providers: [ContentfulService],
+  providers: [ContentfulService,     
+    {
+    provide: APP_INITIALIZER,
+    useFactory: removeLoadingSpinner,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

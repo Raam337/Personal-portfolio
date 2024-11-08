@@ -2,11 +2,12 @@ import { Component, ElementRef, HostListener, OnInit, AfterViewInit, ViewChild, 
 import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
 import { Observable } from 'rxjs';
+import { AnimatedBackgroundComponent } from "./animated-background/animated-background.component";
 
 @Component({
   selector: 'home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.css'],
 })
 
 export class HomePageComponent implements OnInit {
@@ -23,6 +24,7 @@ export class HomePageComponent implements OnInit {
   constructor(private contentful:ContentfulService){}
 
   ngOnInit(){
+    window.scrollTo(0, 0);
     this.contentful.getSkills()
     .subscribe({
       next:(data) => {

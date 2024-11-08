@@ -4,12 +4,10 @@
     height: 100%;
   }
   
-  /* Shared path styling */
   path {
     transform-origin: 50% 0%;
   }
-  
-  /* Individual path animations */
+
   .path0 {
     animation: path0 9s linear infinite alternate;
   }
@@ -22,7 +20,7 @@
     animation: path2 10s linear infinite alternate;
   }
   
-  /* Keyframe animations */
+
   @keyframes path0 {
     0% { transform: rotate(-50deg); }
     100% { transform: rotate(50deg); }
@@ -66,29 +64,18 @@
   }
 
 
-
-
-
 .atext {
   border-right: solid 3px rgba(0,255,0,.75);
   white-space: nowrap;
   overflow: hidden;    
+  animation: animated-text 3s steps(40,end) var(--delay, 1s) 1 normal both,
+  animated-cursor 2000ms steps(29,end) infinite;
 }
-
-/* Animation */
-.atext {
-  animation: animated-text 4s steps(40,end) 1s 1 normal both,
-             animated-cursor 2000ms steps(29,end) infinite;
-}
-
-/* text animation */
 
 @keyframes animated-text{
   from{width: 0;}
   to{width: 472px;}
 }
-
-/* cursor animations */
 
 @keyframes animated-cursor{
   from{border-right-color: rgba(0,255,0,.75);}
