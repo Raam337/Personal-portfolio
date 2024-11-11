@@ -1,15 +1,43 @@
-<div class="bg-background flex justify-between items-center px-5 fade-in-top snap-start" >
+<div class="absolute top-0 left-0 w-full z-10 bg-background flex justify-between items-center px-5 fade-in-top" >
   <img src="../../assets/Frame.svg" class="p-2" />
-  <ul class="flex gap-2 items-center rounded-full border-primary-800 border-[2px] p-2">
-
+  <ul class="hidden md:flex gap-2 items-center rounded-full border-primary-800 border-[2px] p-2">
     <li class="hover:bg-primary-600 text-textMain rounded-full px-4 py-1 cursor-pointer hover:scale-105"
       *ngFor="let pageName of pages" routerLinkActive="bg-primary-800" [routerLink]="'/' + pageName">
       {{ pageName }}
     </li>
   </ul>
 
+<button
+  class="flex md:hidden items-center gap-2 p-2 px-5 text-textMain border-primary-800 border-[2px] rounded-full"
+  (click)="showDropdown = !showDropdown">
+  Menu
+</button>
+
+<!-- Dropdown menu for small screens -->
+<ul
+  *ngIf="showDropdown"
+  class="absolute mt-2 flex flex-col gap-2 items-center border-primary-800 border-[2px] p-2 rounded-md bg-background w-40 z-20 md:hidden
+        top-[100%] left-[52.5%] translate-x-[-50%]">
+  <li
+    class="hover:bg-primary-600 text-textMain rounded-full px-4 py-1 cursor-pointer hover:scale-105"
+    *ngFor="let pageName of pages"
+    routerLinkActive="bg-primary-800"
+    [routerLink]="'/' + pageName"
+    (click)="showDropdown = false">
+    {{ pageName }}
+  </li>
+</ul>
+
   <theme-toggle class="border-primary-800 border-[2px] rounded-full"></theme-toggle>
+
+
+
+
+
+
+
+
+  
+
+  
 </div>
-
-
-<!-- [ngClass]="{ 'snap-start': isHomeRoute() }" -->

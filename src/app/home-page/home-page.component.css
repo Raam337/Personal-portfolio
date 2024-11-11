@@ -68,13 +68,13 @@
   border-right: solid 3px rgba(0,255,0,.75);
   white-space: nowrap;
   overflow: hidden;    
-  animation: animated-text 3s steps(40,end) var(--delay, 1s) 1 normal both,
+  animation: animated-text 1.6s steps(40,end) var(--delay, 1s) 1 normal both,
   animated-cursor 2000ms steps(29,end) infinite;
 }
 
 @keyframes animated-text{
   from{width: 0;}
-  to{width: 472px;}
+  to{width: 100%;}
 }
 
 @keyframes animated-cursor{

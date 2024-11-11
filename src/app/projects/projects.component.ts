@@ -9,7 +9,7 @@ import { Entry } from 'contentful';
 })
 export class ProjectsComponent implements OnInit{
 
-  sizes = [ [2,2], [1,2], [2,3], [1,2], [2,2], [2,2] ]
+  sizes = [ [2,2], [1,2], [2,3], [1,2], [2,2], [2,2] ] // x/y , width/height
 
   projects: any[] | undefined = []
 
