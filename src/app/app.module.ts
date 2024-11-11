@@ -17,7 +17,7 @@ import { FilteredForOfDirective } from './services/filtered-for-of.directive';
 import { CarouselComponent } from './projects/carousel/carousel.component';
 import { NgxSplideModule } from 'ngx-splide';
 import { AnimateInViewDirective } from './services/animate-in-view.directive';
-
+import { RouteReuseStrategy } from '@angular/router';
 
 export function removeLoadingSpinner() {
   return () => {
@@ -26,13 +26,9 @@ export function removeLoadingSpinner() {
       let a = setTimeout(() => {
         spinner.style.display = 'none';
       }, 2);
-      
     }
   };
 }
-
-
-
 
 @NgModule({
   declarations: [
@@ -47,20 +43,17 @@ export function removeLoadingSpinner() {
     TagCloudComponent,
     FilteredForOfDirective,
     CarouselComponent,
-    AnimateInViewDirective
+    AnimateInViewDirective,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    NgxSplideModule
-  ],
-  providers: [ContentfulService,     
+  imports: [BrowserModule, AppRoutingModule, FormsModule, NgxSplideModule],
+  providers: [
+    ContentfulService,
     {
-    provide: APP_INITIALIZER,
-    useFactory: removeLoadingSpinner,
-    multi: true,
-  }],
-  bootstrap: [AppComponent]
+      provide: APP_INITIALIZER,
+      useFactory: removeLoadingSpinner,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

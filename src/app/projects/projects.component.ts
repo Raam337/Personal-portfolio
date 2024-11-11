@@ -33,8 +33,8 @@ export class ProjectsComponent implements OnInit{
   }
 
   handleCardClick(i:number){
-    console.log(i)
     this.selectedProject = i
+    window.scrollTo(0,0)
   }
 
   handleModalClose(){

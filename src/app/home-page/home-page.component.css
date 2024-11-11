@@ -68,7 +68,7 @@
   border-right: solid 3px rgba(0,255,0,.75);
   white-space: nowrap;
   overflow: hidden;    
-  animation: animated-text 1.6s steps(40,end) var(--delay, 1s) 1 normal both,
+  animation: animated-text var(--global-duration,1.6s) steps(40,end) var(--global-delay ,var(--delay, 1s)) 1 normal both,
   animated-cursor 2000ms steps(29,end) infinite;
 }
 

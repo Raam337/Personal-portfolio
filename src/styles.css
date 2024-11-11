@@ -44,14 +44,15 @@ html {
   }
 
   .animated {
-    opacity: 0;
-    transition: opacity 0.3s; /* Optional: Smooth hiding effect */
+    opacity: var(--global-opacity,0);
   }
 
-  .fade-in-top {animation: fade-in-top var(--fade-in-duration, 2s) linear var(--fade-in-delay, 0s) both; }
-  .fade-in-bottom {animation: fade-in-bottom var(--fade-in-duration, 2s) cubic-bezier(.39, .575, .565, 1.000) var(--fade-in-delay, 0s) both;}
-  .fade-in-left {animation: fade-in-left var(--fade-in-duration, 2s) linear var(--fade-in-delay, 0s) both; }
-  .fade-in-right {animation: fade-in-right var(--fade-in-duration, 2s) linear var(--fade-in-delay, 0s) both; }
+  
+
+  .fade-in-top {animation: fade-in-top var(--global-duration ,var(--fade-in-duration, 2s)) linear var(--global-delay ,var(--fade-in-delay, 0s)) both; }
+  .fade-in-bottom {animation: fade-in-bottom var(--global-duration ,var(--fade-in-duration, 2s)) linear var(--global-delay ,var(--fade-in-delay, 0s)) both;}
+  .fade-in-left {animation: fade-in-left var(--global-duration ,var(--fade-in-duration, 2s)) linear var(--global-delay ,var(--fade-in-delay, 0s)) both; }
+  .fade-in-right {animation: fade-in-right var(--global-duration ,var(--fade-in-duration, 2s)) linear var(--global-delay ,var(--fade-in-delay, 0s)) both; }
 
 
   @keyframes fade-in-top{0%{transform:translateY(-50px);opacity:0}100%{transform:translateY(0);opacity:1}}

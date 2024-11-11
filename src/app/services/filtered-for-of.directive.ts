@@ -27,7 +27,6 @@ export class FilteredForOfDirective {
     if (this.filteredForFilterField && this.filteredForFilterType) {
       filteredSortedData = filteredSortedData?.filter((item) => item[this.filteredForFilterField] === this.filteredForFilterType);
     }
-    console.log(filteredSortedData)
     // Apply sorting if a property is provided
     if (this.filteredForSortBy) {
       filteredSortedData = filteredSortedData?.sort((a, b) => a[this.filteredForSortBy] - b[this.filteredForSortBy]);

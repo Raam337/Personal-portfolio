@@ -26,14 +26,14 @@
 
     <!-- Modal window -->
   <dialog *ngIf="selectedProject !== null" 
-          class="modal w-[90%] h-fit py-[60px] flex flex-col z-20 bg-background-400">
+          class="modal w-[90%] h-fit py-[30px] md:py-[60px] flex flex-col z-20 bg-background-400">
     <img (click)="handleModalClose()" src="../../assets/icons8-close.svg" class="absolute right-3 top-3 hover:scale-105">
     <div class="grid grid-cols-1 md:grid-cols-[60%,40%] h-full items-start md:items-center">
-      <!-- <div class="bg-slate-400 aspect-video hidden md:block">image</div> -->
+  
       <carousel class="hidden md:block" [imageList]="projects?.[selectedProject].images"></carousel>
-      <div class="grid grid-cols-1 gap-y-5 justify-items-center px-5">
+      <div class="grid grid-cols-1 gap-y-5 justify-items-center md:px-5">
 
-        <div class="text-4xl my-5 text-textMain">
+        <div class="text-4xl my-5 text-textMain font-bold">
           {{projects?.[selectedProject].title}}
         </div>
         <carousel class="md:hidden" [imageList]="projects?.[selectedProject].images"></carousel>
@@ -44,15 +44,15 @@
           {{section.content[0].value}}
         </article>
         
-        <div class="grid grid-cols-2 gap-3 justify-around w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 justify-around w-full">
           <a href="{{projects?.[selectedProject].gitLink}}" target="_blank">
-            <button class="bg-primary rounded-[15px] text-2xl px-8 py-4 size-full">
+            <button class="bg-primary rounded-[15px] text-2xl py-4 size-full">
               GitHub
             </button>
           </a>
           
           <a href="{{projects?.[selectedProject].websiteLink}}" target="_blank">
-            <button class="bg-secondary rounded-[15px] text-2xl px-8 py-4 size-full">
+            <button class="bg-secondary rounded-[15px] text-2xl py-4 size-full">
               Website
             </button>
           </a>

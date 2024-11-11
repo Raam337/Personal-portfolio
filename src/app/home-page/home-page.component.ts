@@ -3,6 +3,7 @@ import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
 import { Observable } from 'rxjs';
 import { AnimatedBackgroundComponent } from "./animated-background/animated-background.component";
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'home-page',
@@ -21,19 +22,26 @@ export class HomePageComponent implements OnInit {
     {skillField: "Additional Skills", filter:"extra"}
   ]
 
-  constructor(private contentful:ContentfulService){}
+  constructor(private contentful:ContentfulService, private appComponent:AppComponent){}
 
   ngOnInit(){
+
+    if (this.appComponent.animated === false) { 
+      this.appComponent.animated = true
+    } else {
+      document.documentElement.style.setProperty('--global-duration', "0");
+      document.documentElement.style.setProperty('--global-delay', "0");
+      document.documentElement.style.setProperty('--global-opacity', "1");
+    }
+
+    console.log("home render")
     window.scrollTo(0, 0);
     this.contentful.getSkills()
     .subscribe({
       next:(data) => {
-        // data.items.forEach( item => this.skills?.push(item.fields));
-        console.log(data)
         let temp: any[] | undefined =[]
         data.items.forEach( item => temp?.push(item.fields))
         this.skills = temp
-        console.log("Home component, skills:" , this.skills);
       }
     })
 
