@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rf-portfolio",
+            "outputPath": "prod",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -46,7 +46,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/Project-portfolio/"
             },
             "development": {
               "buildOptimizer": false,
