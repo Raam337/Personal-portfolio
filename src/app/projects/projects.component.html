@@ -27,7 +27,7 @@
     <!-- Modal window -->
   <dialog *ngIf="selectedProject !== null" 
           class="modal w-[90%] h-fit py-[30px] md:py-[60px] flex flex-col z-20 bg-background-400">
-    <img (click)="handleModalClose()" src="../../assets/icons8-close.svg" class="absolute right-3 top-3 hover:scale-105">
+    <img (click)="handleModalClose()" src="assets/icons8-close.svg" class="absolute right-3 top-3 hover:scale-105">
     <div class="grid grid-cols-1 md:grid-cols-[60%,40%] h-full items-start md:items-center">
   
       <carousel class="hidden md:block" [imageList]="projects?.[selectedProject].images"></carousel>

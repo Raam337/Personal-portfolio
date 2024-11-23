@@ -44,7 +44,13 @@ export class HomePageComponent implements OnInit {
         this.skills = temp
       }
     })
+  }
 
+  scrollSection(){
+    const section = document.getElementById("AboutMe");
+    if(section){
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
 }

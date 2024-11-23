@@ -31,7 +31,7 @@
 /* * { outline: 1px solid red; } */
 
 .glass{
-    @apply rounded-[16px] bg-clip-padding backdrop-blur-md border border-primary-700
+    @apply rounded-[16px] bg-clip-padding backdrop-blur-md border 
 }
 
 html {
