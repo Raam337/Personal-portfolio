@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  pages: String[] = ["Home", "Projects", "Resume", "About"];
+  pages: String[] = ["Home", "Projects", "Resume"];
   showDropdown = false
   constructor(private router: Router) {}
 
