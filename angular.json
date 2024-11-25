@@ -47,7 +47,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/Project-portfolio/"
+              "baseHref": "/Personal-portfolio/"
             },
             "development": {
               "buildOptimizer": false,
