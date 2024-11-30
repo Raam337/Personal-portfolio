@@ -110,8 +110,8 @@
           class="grid grid-cols-1 md:grid-cols-[200px,1fr] lg:grid-cols-[300px,1fr] auto-rows-max flex-grow px-[5%] py-5 gap-10">   
 
         <!-- Skill category -->
-        <div class="text-textMain text-5xl font-bold place-self-center  justify-self-center xs:justify-self-start">
-          <p>{{section.skillField}}</p>
+        <div class="text-textMain text-5xl font-bold justify-self-center sm:justify-self-start self-center">
+          {{section.skillField}}
         </div>
 
 
@@ -122,8 +122,8 @@
           class="text-textMain glass border-primary-700 grow h-32 m-2 flex flex-col items-center justify-center
                 transition-all ease-in-out hover:scale-110 duration-200">
 
-            <img src={{skill.icon.fields.file.url}} class="size-[60px]	">
-            <div>{{skill["skillName"]}}</div>
+            <img src={{skill.icon.fields.file.url}} class="size-[50px] sm:size-[60px]">
+            <div class="text-sm sm:text-base mt-2">{{skill["skillName"]}}</div>
             <div class="absolute inset-0 bg-primary opacity-20 rounded-[16px] -z-10 "></div>
 
           </div>
