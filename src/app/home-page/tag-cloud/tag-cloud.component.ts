@@ -18,8 +18,8 @@ export class TagCloudComponent implements AfterViewInit {
   ngAfterViewInit(): void {
 
     const tags = [
-      'Angular', 'JavaScript', 'TypeScript', 'CSS', 'HTML', 'Node.js', 'Express', 'MongoDB', 
-      'React', 'Vue.js', 'Tailwind', 'SASS', 'Bootstrap', 'D3.js'
+      'Angular', 'JavaScript', 'TypeScript', 'CSS', 'HTML', 'Node.js', 'MongoDB', 
+      'React', 'Tailwind', 'Bootstrap', 'Three.js', 'Firebase'
     ];
 
     const options = {
