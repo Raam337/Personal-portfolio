@@ -23,7 +23,7 @@ export class TagCloudComponent implements AfterViewInit {
     ];
 
     const options = {
-      radius:300
+      radius:250
     };
 
     TagCloud(this.tagCloudContainer.nativeElement, tags, options);

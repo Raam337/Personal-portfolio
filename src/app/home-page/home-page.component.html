@@ -13,7 +13,10 @@
     </div>
 
     <div class="flex flex-col sm:flex-row flex-basis-full gap-5 md:gap-10 text-2xl">
-      <a class="w-[240px] glass border-accent-800 text-center" (click)="scrollSection()" animateInView animationClass="fade-in-bottom" style="--fade-in-duration:1s; --fade-in-delay:3.5s;">
+      <a class="w-[240px] glass border-accent-800 text-center animated
+                hover:outline outline-accent-600 outline-offset-0 outline-2" 
+        (click)="scrollSection()" animateInView animationClass="fade-in-bottom" 
+        style="--fade-in-duration:1s; --fade-in-delay:3.5s;">
         <button class="h-[60px] md:h-[80px] py-3 px-6 rounded-[15px]  text-textMain
                        text-lg md:text-2xl lg:text2xl">
           Find out more
@@ -21,7 +24,10 @@
         <div class="absolute inset-0 bg-accent opacity-20  rounded-[16px] -z-10"></div>
       </a>
 
-      <a class="max-w-[180px] md:px-6 glass border-primary-800 text-center" routerLink="/Resume" animateInView animationClass="fade-in-bottom" style="--fade-in-duration:1s; --fade-in-delay:3.5s;">
+      <a class="max-w-[180px] md:px-6 glass border-primary-800 text-center animated
+                hover:outline outline-accent-600 outline-offset-0 outline-2" 
+        routerLink="/Resume" animateInView animationClass="fade-in-bottom" 
+        style="--fade-in-duration:1s; --fade-in-delay:3.5s;">
         <button class="h-[60px] md:h-[80px] py-3 px-6 rounded-[15px] text-textMain
                        text-lg md:text-2xl lg:text-2xl">
           Contact
@@ -64,25 +70,31 @@
 
 
 
-<section class="snap-start bg-background w-full min-h-screen flex flex-col items-center">
+<section class="snap-start w-full h-screen relative flex flex-col items-center justify-center">
   <div animateInView animationClass="fade-in-bottom" style="--fade-in-duration:1s; --fade-in-delay:0.1s;"
-       class="text-textMain select-none text-6xl font-bold my-12 justify-start animated">
+       class="text-textMain select-none text-6xl font-bold justify-start animated">
     Projects
   </div>
   <div class="select-none grid grid-cols-1 md:grid-cols-2 items-center gap-32">
     <tag-cloud class="hidden md:block animated" animateInView animationClass="fade-in-bottom" style="--fade-in-duration:1s; --fade-in-delay:6.3s;"></tag-cloud>
-    <div class="text-textMain text-2xl md:text-4xl space-y-8 items-center md:indent-20">
-      <p animateInView animationClass="atext" class="animated" >Completed projects: 7</p>
-      <p animateInView animationClass="atext" class="animated" style="--delay:2.8s">Unique tools used: 24</p>
-      <p animateInView animationClass="atext" class="animated" style="--delay:4.6s">Hours spent: 951</p>
-
-      <a routerLink="/Projects" >
-        <button class="mt-[100px] py-3 px-6 rounded-[15px] animated bg-primary-600" 
-                animateInView animationClass="fade-in-bottom" style="--fade-in-duration:1s; --fade-in-delay:7s;">
-                Explore Projects
+    <div>
+      <div class="text-textMain text-2xl md:text-4xl space-y-8">
+        <p animateInView animationClass="atext" class="animated max-w-[370px]" >Completed projects: 7</p>
+        <p animateInView animationClass="atext" class="animated max-w-[370px]" style="--delay:2.8s">Unique tools used: 24</p>
+        <p animateInView animationClass="atext" class="animated max-w-[290px]" style="--delay:4.6s">Hours spent: 951</p>
+      </div>
+      <a class="max-w-[300px] md:px-6 glass border-primary-800 text-center block animated mt-16 
+                hover:outline outline-accent-600 outline-offset-0 outline-2"
+        routerLink="/Projects" animateInView 
+        animationClass="fade-in-bottom" 
+        style="--fade-in-duration:1s; --fade-in-delay:5.7s;"
+      >
+        <button class="h-[60px] md:h-[80px] py-3 px-6 rounded-[15px] text-textMain 
+                      text-lg md:text-2xl lg:text-2xl">
+          Explore Projects
         </button>
+        <div class="absolute inset-0 bg-primary opacity-20 rounded-[16px] -z-10"></div>
       </a>
-      
     </div>
 
   </div>
