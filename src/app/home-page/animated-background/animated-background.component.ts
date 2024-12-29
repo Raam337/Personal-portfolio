@@ -30,7 +30,7 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
   private rangeWidth = 4;
   private baseHue = 180;
   private rangeHue = 60;
-  private backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--background');
+  private backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--background-500');
 
   private canvas: any;
   private ctx: any;
