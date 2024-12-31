@@ -1,14 +1,22 @@
-import { Component, ElementRef, HostListener, OnInit, AfterViewInit, ViewChild, HostBinding, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+  HostBinding,
+  Input,
+} from '@angular/core';
+import { ThemeService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'animated-background',
   templateUrl: './animated-background.component.html',
-  styleUrls: ['./animated-background.component.css']
+  styleUrls: ['./animated-background.component.css'],
 })
-
 export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
-
-  @HostBinding("class") elementClass: string | undefined;
+  @HostBinding('class') elementClass: string | undefined;
 
   @ViewChild('canvasContainer', { static: true }) canvasContainer!: ElementRef;
 
@@ -20,7 +28,7 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
   private pipePropCount = 8;
   private pipePropsLength = this.pipeCount * this.pipePropCount;
   private turnCount = 8;
-  private turnAmount = (360 / this.turnCount) * Math.PI / 180;
+  private turnAmount = ((360 / this.turnCount) * Math.PI) / 180;
   private turnChanceRange = 250;
   private baseSpeed = 2.5;
   private rangeSpeed = 1;
@@ -30,7 +38,9 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
   private rangeWidth = 4;
   private baseHue = 180;
   private rangeHue = 60;
-  private backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--background-500');
+  private backgroundColor = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue('--background-500');
 
   private canvas: any;
   private ctx: any;
@@ -38,9 +48,17 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
   private tick: number = 0;
   private pipeProps: Float32Array = new Float32Array(this.pipePropsLength);
 
-  constructor() { }
+  constructor(private themeService:ThemeService) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.themeService.signal$.subscribe(signal =>{
+      console.log("Signal received", this.backgroundColor);
+      this.backgroundColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue('--background-500');
+      this.ctx.a.reset()
+    })
+  }
 
   ngAfterViewInit(): void {
     this.setup();
@@ -58,14 +76,14 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
     const container = this.canvasContainer.nativeElement;
     this.canvas = {
       a: document.createElement('canvas'),
-      b: document.createElement('canvas')
+      b: document.createElement('canvas'),
     };
 
     container.appendChild(this.canvas.b);
 
     this.ctx = {
       a: this.canvas.a.getContext('2d'),
-      b: this.canvas.b.getContext('2d')
+      b: this.canvas.b.getContext('2d'),
     };
 
     this.center = [];
@@ -92,8 +110,10 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
   }
 
   initPipe(i: number) {
-    let x = 0.1*this.canvas.a.width + Math.random() * 0.8 * this.canvas.a.width;
-    let y = 0.1*this.canvas.a.height + Math.random() * 0.8 * this.canvas.a.height;
+    let x =
+      0.1 * this.canvas.a.width + Math.random() * 0.8 * this.canvas.a.width;
+    let y =
+      0.1 * this.canvas.a.height + Math.random() * 0.8 * this.canvas.a.height;
     let direction = Math.round(Math.random()) ? Math.PI / 2 : Math.PI * 1.5;
     let speed = this.baseSpeed + Math.random() * this.rangeSpeed;
     let life = 0;
@@ -127,8 +147,9 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
     life++;
     x += Math.cos(direction) * speed;
     y += Math.sin(direction) * speed;
-    const turnChance = !(this.tick % Math.round(Math.random() * this.turnChanceRange)) &&
-                       (!(Math.round(x) % 6) || !(Math.round(y) % 6));
+    const turnChance =
+      !(this.tick % Math.round(Math.random() * this.turnChanceRange)) &&
+      (!(Math.round(x) % 6) || !(Math.round(y) % 6));
     const turnBias = Math.round(Math.random()) ? -1 : 1;
     direction += turnChance ? this.turnAmount * turnBias : 0;
 
@@ -140,9 +161,18 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
     if (life > ttl) this.initPipe(i);
   }
 
-  drawPipe(x: number, y: number, life: number, ttl: number, width: number, hue: number) {
+  drawPipe(
+    x: number,
+    y: number,
+    life: number,
+    ttl: number,
+    width: number,
+    hue: number
+  ) {
     this.ctx.a.save();
-    this.ctx.a.strokeStyle = `hsla(${hue},75%,50%,${this.fadeInOut(life, ttl) * 0.125})`;
+    this.ctx.a.strokeStyle = `hsla(${hue},75%,50%,${
+      this.fadeInOut(life, ttl) * 0.125
+    })`;
     this.ctx.a.beginPath();
     this.ctx.a.arc(x, y, width, 0, Math.PI * 2);
     this.ctx.a.stroke();
@@ -180,5 +210,4 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
   onWindowResize() {
     this.resize();
   }
-
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme-service.service';
 
 @Component({
   selector: 'theme-toggle',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./theme-toggle.component.css']
 })
 export class ThemeToggleComponent {
+
+  private themeService = inject(ThemeService);
   darkTheme: boolean = true;
 
 
@@ -18,6 +21,7 @@ export class ThemeToggleComponent {
 
   onToggle(){
     document.documentElement.classList.toggle("darkTheme");
+    this.themeService.updateTheme()
   }
 
 
