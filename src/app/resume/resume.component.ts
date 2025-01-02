@@ -20,7 +20,6 @@ export class ResumeComponent {
       next:(data)=> {
         const cvEntry = data.items[0]?.fields['cv'] as Asset;  
         const fileUrl = 'https:' + cvEntry.fields.file?.url as string;   
-        console.log(fileUrl)
         this.cvLink = this.sanitiser.bypassSecurityTrustResourceUrl(fileUrl);
       }
     })

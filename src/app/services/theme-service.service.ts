@@ -14,6 +14,5 @@ export class ThemeService {
   updateTheme(){
     this.darkTheme = !this.darkTheme
     this.darkThemeSignal.next(this.darkTheme);
-    console.log("Signal sent " + this.darkTheme)
   }
 }

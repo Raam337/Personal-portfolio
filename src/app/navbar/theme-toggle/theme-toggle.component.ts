@@ -14,7 +14,6 @@ export class ThemeToggleComponent {
 
   ngOnInit(): void {
     const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-    console.log(darkThemeMq)
     //this.darkTheme = darkThemeMq.matches ? true : false;
     this.darkTheme? document.documentElement.classList.add("darkTheme"): null;
   }

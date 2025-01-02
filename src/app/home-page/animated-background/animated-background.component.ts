@@ -52,7 +52,6 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.themeService.signal$.subscribe(signal =>{
-      console.log("Signal received", this.backgroundColor);
       this.backgroundColor = getComputedStyle(
         document.documentElement
       ).getPropertyValue('--background-500');

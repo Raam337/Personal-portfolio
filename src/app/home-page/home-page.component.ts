@@ -28,7 +28,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit(){
     this.themeService.signal$.subscribe(signal =>{
       this.darkTheme = signal
-      console.log(this.darkTheme)
     })
 
     if (this.appComponent.animated === false) { 
@@ -39,7 +38,6 @@ export class HomePageComponent implements OnInit {
       document.documentElement.style.setProperty('--global-opacity', "1");
     }
 
-    console.log("home render")
     window.scrollTo(0, 0);
     this.contentful.getSkills()
     .subscribe({
