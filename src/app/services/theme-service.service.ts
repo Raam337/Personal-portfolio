@@ -7,12 +7,13 @@ import { Subject } from 'rxjs';
 export class ThemeService {
 
   constructor() { }
-
-  private themeSignal = new Subject<void>();
-  signal$ = this.themeSignal.asObservable();
+  private darkTheme = true;
+  private darkThemeSignal = new Subject<boolean>();
+  signal$ = this.darkThemeSignal.asObservable();
 
   updateTheme(){
-    this.themeSignal.next();
-    console.log("Signal sent")
+    this.darkTheme = !this.darkTheme
+    this.darkThemeSignal.next(this.darkTheme);
+    console.log("Signal sent " + this.darkTheme)
   }
 }

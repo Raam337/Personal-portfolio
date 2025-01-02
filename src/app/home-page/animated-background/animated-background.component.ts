@@ -56,6 +56,8 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
       this.backgroundColor = getComputedStyle(
         document.documentElement
       ).getPropertyValue('--background-500');
+      this.baseHue = 240
+      this.initPipes();
       this.ctx.a.reset()
     })
   }
@@ -171,7 +173,7 @@ export class AnimatedBackgroundComponent implements OnInit, AfterViewInit {
   ) {
     this.ctx.a.save();
     this.ctx.a.strokeStyle = `hsla(${hue},75%,50%,${
-      this.fadeInOut(life, ttl) * 0.125
+      this.fadeInOut(life, ttl) * 0.3
     })`;
     this.ctx.a.beginPath();
     this.ctx.a.arc(x, y, width, 0, Math.PI * 2);

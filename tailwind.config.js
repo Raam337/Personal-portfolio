@@ -88,6 +88,13 @@ export const theme = {
         100: 'var(--textMain)',
         900: 'var(--textContrast)',
       },
+      textDark: {
+        DEFAULT: 'var(--textDark)'
+      },
+      textWhite: {
+        DEFAULT: 'var(--textWhite)'
+      },
+
 
     },
     fontFamily : {

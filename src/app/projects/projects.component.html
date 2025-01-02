@@ -2,7 +2,8 @@
   <div class="text-textMain select-none text-6xl font-bold my-12 justify-start">Projects</div>
   <div class="grid grid-cols-1 md:grid-cols-5 justify-items-center gap-y-4 md:gap-4 w-[90%] max-w-[1100px]">    <!-- Grid component -->
     <div *ngFor="let project of projects; index as i" 
-         class="bg-primary-600 flex flex-col p-[18px] rounded-[33px] gap-2 hover:scale-105 transition-transform cursor-pointer select-none"  
+         class="bg-primary-600 flex flex-col p-[18px] rounded-[33px] gap-2 hover:scale-105 transition-transform cursor-pointer select-none
+                text-textWhite"  
          [ngClass]="[ 'col-span-' + sizes[i][0],'row-span-' + sizes[i][1] ]"
          (click) = "handleCardClick(i)">   <!-- Card component -->
       <div>
@@ -10,10 +11,10 @@
              class="rounded-[15px] skeleton"
              [ngClass] = "[ sizes[i][0]>=sizes[i][1] ? 'aspect-video':'aspect-square']">
       </div>
-      <h1 class="text-3xl font-bold text-textMain indent-3 mt-2">{{project.title}}</h1>
-      <p class="text-textMain my-2">{{project.shortDescription}}</p>
+      <h1 class="text-3xl font-bold text-inherit indent-3 mt-2">{{project.title}}</h1>
+      <p class="text-inherit my-2">{{project.shortDescription}}</p>
       <div class="flex flex-wrap justify-center gap-3 py-2" [class.hidden]="sizes[i][0] < 2" >
-        <div class="bg-secondary rounded-full px-4 py-1 text-xs drop-shadow-lg" *ngFor="let skill of project.skills">{{skill.fields.skillName}}</div>
+        <div class="bg-secondary rounded-full text-textDark px-4 py-1 text-xs drop-shadow-lg" *ngFor="let skill of project.skills">{{skill.fields.skillName}}</div>
       </div>
     </div>
 
@@ -26,8 +27,8 @@
 
     <!-- Modal window -->
   <dialog *ngIf="selectedProject !== null" 
-          class="modal w-[90%] h-fit py-[30px] md:py-[60px] flex flex-col z-20 bg-background-400">
-    <img (click)="handleModalClose()" src="assets/icons8-close.svg" class="absolute right-3 top-3 hover:scale-105">
+          class="modal w-[90%] h-fit py-[30px] md:py-[60px] flex flex-col z-20 bg-background-400 border-2 border-primary">
+    <img (click)="handleModalClose()" src="assets/icons8-close.svg" class="absolute right-3 top-3 hover:scale-105" [ngClass]="{'invert': darkTheme}">
     <div class="grid grid-cols-1 md:grid-cols-[60%,40%] h-full items-start md:items-center">
   
       <carousel class="hidden md:block" [imageList]="projects?.[selectedProject].images"></carousel>

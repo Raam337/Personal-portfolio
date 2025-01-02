@@ -7,17 +7,20 @@
 
 @layer base { 
     :root {                    /*White theme */
-        --primary-50: #E6DFFF;
-        --primary-100: #DBCFFF;
-        --primary-200: #C3B1FF;
-        --primary-300: #AC92FF;
-        --primary-400: #9474FF;
-        --primary-500: #7D55FF;
-        --primary-600: #4A13FF;
-        --primary-700: #3100CF;
-        --primary-800: #21008D;
-        --primary-900: #12004B;
-        --primary-950: #0A002A;
+
+        --primary-50: #FFFFFF;
+        --primary-100: #FFFFFF;
+        --primary-200: #F2EEFF;
+        --primary-300: #D3C6FF;
+        --primary-400: #B39DFF;
+        --primary-500: #9474FF; 
+        --primary-600: #7C55FF;
+        --primary-700: #6537FF;
+        --primary-800: #4D18FF;
+        --primary-900: #009ef9;
+        --primary-950: #3600E9;
+  
+    
         
         --secondary-50: #CBEBDD;
         --secondary-100: #C0E6D5;
@@ -37,18 +40,18 @@
         --accent-300: #82FD82;
         --accent-400: #5AFC5A;
         --accent-500: #32FB32;
-        --accent-600: #05F005;
-        --accent-700: #04B904;
-        --accent-800: #038203;
-        --accent-900: #014B01;
-        --accent-950: #013001;
+        --accent-600: #14FA14;
+        --accent-700: #05EB05;
+        --accent-800: #04CD04;
+        --accent-900: #03AF03;
+        --accent-950: #03A003;
 
         --background-50: #FAFBFF;
         --background-100: #F7F9FF;
         --background-200: #F2F5FF;
         --background-300: #EDF0FF;
         --background-400: #E8ECFF;
-        --background-500: #E3E8FF;
+        --background-500: #f2f3f9;
         --background-600: #BFCBFF;
         --background-700: #9CADFF;
         --background-800: #7890FF;
@@ -57,6 +60,9 @@
 
         --textMain: #141414;
         --textContrast: #F5F5F5;
+
+        --textDark: #141414;
+        --textWhite: #F5F5F5;
     }
 
     :root.darkTheme{            /*Dark theme */

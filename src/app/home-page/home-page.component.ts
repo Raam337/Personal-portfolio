@@ -4,6 +4,7 @@ import { Entry } from 'contentful';
 import { Observable } from 'rxjs';
 import { AnimatedBackgroundComponent } from "./animated-background/animated-background.component";
 import { AppComponent } from '../app.component';
+import { ThemeService } from '../services/theme-service.service';
 
 @Component({
   selector: 'home-page',
@@ -12,7 +13,7 @@ import { AppComponent } from '../app.component';
 })
 
 export class HomePageComponent implements OnInit {
-
+  darkTheme: boolean = true
   skills: any[] | undefined;
 
   skillSections = [
@@ -22,9 +23,13 @@ export class HomePageComponent implements OnInit {
     {skillField: "Additional Skills", filter:"extra"}
   ]
 
-  constructor(private contentful:ContentfulService, private appComponent:AppComponent){}
+  constructor(private contentful:ContentfulService, private appComponent:AppComponent, private themeService:ThemeService){}
 
   ngOnInit(){
+    this.themeService.signal$.subscribe(signal =>{
+      this.darkTheme = signal
+      console.log(this.darkTheme)
+    })
 
     if (this.appComponent.animated === false) { 
       this.appComponent.animated = true

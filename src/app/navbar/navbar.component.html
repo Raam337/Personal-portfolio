@@ -1,8 +1,8 @@
-<div class="absolute top-0 left-0 w-full z-10 bg-background flex justify-between items-center px-5 fade-in-top" >
+<div class="absolute top-0 left-0 w-full z-10 bg-background flex justify-between items-center px-5 fade-in-top border-b-[2px] border-primary-700" >
   <img src="assets/Frame.svg" class="p-2 cursor-pointer" [routerLink]=" '/' " />
-  <ul class="hidden md:flex gap-2 items-center rounded-full border-primary-800 border-[2px] p-2">
-    <li class="hover:bg-primary-600 text-textMain rounded-full px-4 py-1 cursor-pointer hover:scale-105"
-      *ngFor="let pageName of pages" routerLinkActive="bg-primary-800" [routerLink]="'/' + pageName">
+  <ul class="hidden md:flex gap-2 items-center rounded-full border-primary-700 border-[2px] p-2">
+    <li class="hover:bg-primary-950 hover:text-textWhite text-textMain rounded-full px-4 py-1 cursor-pointer hover:scale-105"
+      *ngFor="let pageName of pages" routerLinkActive="bg-primary-800 text-textWhite" [routerLink]="'/' + pageName">
       {{ pageName }}
     </li>
   </ul>
@@ -28,7 +28,7 @@
   </li>
 </ul>
 
-  <theme-toggle class="border-primary-800 border-[2px] rounded-full"></theme-toggle>
+  <theme-toggle class="border-primary-700 border-[2px] rounded-full"></theme-toggle>
 
 
 

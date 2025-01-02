@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
+import { ThemeService } from '../services/theme-service.service';
 
 @Component({
   selector: 'projects',
@@ -14,12 +15,16 @@ export class ProjectsComponent implements OnInit{
   projects: any[] | undefined = []
 
   selectedProject:number | null = null
-
+  darkTheme:boolean = true 
   skills=["Javascript","React","Firebase","Tailwind","Abstract"]
 
-  constructor(private contentful: ContentfulService) { }
+  constructor(private contentful: ContentfulService, private themeService:ThemeService) { }
 
   ngOnInit(){
+    this.themeService.signal$.subscribe(signal=>{
+      this.darkTheme = signal
+    })
+
     this.contentful.getProjects()
     .subscribe({
       next:(data) => {
