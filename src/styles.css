@@ -1,0 +1,153 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+
+@layer base { 
+    :root {                    /*White theme */
+
+        --primary-50: #FFFFFF;
+        --primary-100: #FFFFFF;
+        --primary-200: #F2EEFF;
+        --primary-300: #D3C6FF;
+        --primary-400: #B39DFF;
+        --primary-500: #9474FF; 
+        --primary-600: #7C55FF;
+        --primary-700: #6537FF;
+        --primary-800: #4D18FF;
+        --primary-900: #009ef9;
+        --primary-950: #3600E9;
+  
+    
+        
+        --secondary-50: #CBEBDD;
+        --secondary-100: #C0E6D5;
+        --secondary-200: #AADEC7;
+        --secondary-300: #94D5B8;
+        --secondary-400: #7ECDAA;
+        --secondary-500: #68C49B;
+        --secondary-600: #45AF80;
+        --secondary-700: #358762;
+        --secondary-800: #255F45;
+        --secondary-900: #153628;
+        --secondary-950: #0D2219;
+        
+        --accent-50: #E6FFE6;
+        --accent-100: #D2FED2;
+        --accent-200: #AAFDAA;
+        --accent-300: #82FD82;
+        --accent-400: #5AFC5A;
+        --accent-500: #32FB32;
+        --accent-600: #14FA14;
+        --accent-700: #05EB05;
+        --accent-800: #04CD04;
+        --accent-900: #03AF03;
+        --accent-950: #03A003;
+
+        --background-50: #FAFBFF;
+        --background-100: #F7F9FF;
+        --background-200: #F2F5FF;
+        --background-300: #EDF0FF;
+        --background-400: #E8ECFF;
+        --background-500: #f2f3f9;
+        --background-600: #BFCBFF;
+        --background-700: #9CADFF;
+        --background-800: #7890FF;
+        --background-900: #5473FF;
+        --background-950: #4264FF;
+
+        --textMain: #141414;
+        --textContrast: #F5F5F5;
+
+        --textDark: #141414;
+        --textWhite: #F5F5F5;
+    }
+
+    :root.darkTheme{            /*Dark theme */
+        --primary-50: #DEE5FE;
+        --primary-100: #D2DBFE;
+        --primary-200: #B9C6FE;
+        --primary-300: #A0B2FD;
+        --primary-400: #879EFD;
+        --primary-500: #6E8AFC;
+        --primary-600: #325AFB;
+        --primary-700: #0532EB;
+        --primary-800: #0425AF;
+        --primary-900: #021973;
+        --primary-950: #021255;
+      
+        --secondary-50: #CBEBDD;
+        --secondary-100: #C0E6D5;
+        --secondary-200: #AADEC7;
+        --secondary-300: #94D5B8;
+        --secondary-400: #7ECDAA;
+        --secondary-500: #68C49B;
+        --secondary-600: #45AF80;
+        --secondary-700: #358762;
+        --secondary-800: #255F45;
+        --secondary-900: #153628;
+        --secondary-950: #0D2219;
+        
+        --accent-50: #B9FEB9;
+        --accent-100: #AAFDAA;
+        --accent-200: #8CFD8C;
+        --accent-300: #6EFC6E;
+        --accent-400: #50FC50;
+        --accent-500: #32FB32;
+        --accent-600: #04E604;
+        --accent-700: #03A503;
+        --accent-800: #026402;
+        --accent-900: #012301;
+        --accent-950: #000300;
+
+        --background-50: #1435C5;
+        --background-100: #1230B2;
+        --background-200: #0E268D;
+        --background-300: #0A1C68;
+        --background-400: #071243;
+        --background-500: #03081E;
+        --background-600: #000000;
+        --background-700: #000000;
+        --background-800: #000000;
+        --background-900: #000000;
+        --background-950: #000000;
+        
+        --textMain: #F5F5F5;
+        --textContrast: #141414;
+    }
+
+}
+
+/* * { outline: 1px solid red; } */
+
+.glass{
+    @apply rounded-[16px] bg-clip-padding backdrop-blur-md border 
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;   
+  }
+  
+  body {
+    overflow-y: scroll;       
+  }
+
+  .animated {
+    opacity: var(--global-opacity,0);
+  }
+
+  
+
+  .fade-in-top {animation: fade-in-top var(--global-duration ,var(--fade-in-duration, 2s)) linear var(--global-delay ,var(--fade-in-delay, 0s)) both; }
+  .fade-in-bottom {animation: fade-in-bottom var(--global-duration ,var(--fade-in-duration, 2s)) linear var(--global-delay ,var(--fade-in-delay, 0s)) both;}
+  .fade-in-left {animation: fade-in-left var(--global-duration ,var(--fade-in-duration, 2s)) linear var(--global-delay ,var(--fade-in-delay, 0s)) both; }
+  .fade-in-right {animation: fade-in-right var(--global-duration ,var(--fade-in-duration, 2s)) linear var(--global-delay ,var(--fade-in-delay, 0s)) both; }
+
+
+  @keyframes fade-in-top{0%{transform:translateY(-50px);opacity:0}100%{transform:translateY(0);opacity:1}}
+  @keyframes fade-in-bottom{0%{transform:translateY(50px);opacity:0}100%{transform:translateY(0);opacity:1}}
+  @keyframes fade-in-left{0%{transform:translateX(-50px);opacity:0}100%{transform:translateX(0);opacity:1}}
+  @keyframes fade-in-right{0%{transform:translateX(50px);opacity:0}100%{transform:translateX(0);opacity:1}}

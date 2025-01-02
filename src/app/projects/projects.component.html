@@ -1,0 +1,75 @@
+<section class="w-full relative flex flex-col items-center pt-[80px] pb-5">
+  <div class="text-textMain select-none text-6xl font-bold my-12 justify-start">Projects</div>
+  <div class="grid grid-cols-1 md:grid-cols-5 justify-items-center gap-y-4 md:gap-4 w-[90%] max-w-[1100px]">    <!-- Grid component -->
+    <div *ngFor="let project of projects; index as i" 
+         class="bg-primary-600 flex flex-col p-[18px] rounded-[33px] gap-2 hover:scale-105 transition-transform cursor-pointer select-none
+                text-textWhite"  
+         [ngClass]="[ 'col-span-' + sizes[i][0],'row-span-' + sizes[i][1] ]"
+         (click) = "handleCardClick(i)">   <!-- Card component -->
+      <div>
+        <img [src]="project.mainImage?.fields.file.url ?? 'https://placehold.co/400x400'" 
+             class="rounded-[15px] skeleton"
+             [ngClass] = "[ sizes[i][0]>=sizes[i][1] ? 'aspect-video':'aspect-square']">
+      </div>
+      <h1 class="text-3xl font-bold text-inherit indent-3 mt-2">{{project.title}}</h1>
+      <p class="text-inherit my-2">{{project.shortDescription}}</p>
+      <div class="flex flex-wrap justify-center gap-3 py-2" [class.hidden]="sizes[i][0] < 2" >
+        <div class="bg-secondary rounded-full text-textDark px-4 py-1 text-xs drop-shadow-lg" *ngFor="let skill of project.skills">{{skill.fields.skillName}}</div>
+      </div>
+    </div>
+
+    <!-- <div class="bg-background-300 size-full col-span-2 row-span-4" >2x2</div> -->
+    
+
+
+  </div>
+
+
+    <!-- Modal window -->
+  <dialog *ngIf="selectedProject !== null" 
+          class="modal w-[90%] h-fit py-[30px] md:py-[60px] flex flex-col z-20 bg-background-400 border-2 border-primary">
+    <img (click)="handleModalClose()" src="assets/icons8-close.svg" class="absolute right-3 top-3 hover:scale-105" [ngClass]="{'invert': darkTheme}">
+    <div class="grid grid-cols-1 md:grid-cols-[60%,40%] h-full items-start md:items-center">
+  
+      <carousel class="hidden md:block" [imageList]="projects?.[selectedProject].images"></carousel>
+      <div class="grid grid-cols-1 gap-y-5 justify-items-center md:px-5">
+
+        <div class="text-4xl my-5 text-textMain font-bold select-none">
+          {{projects?.[selectedProject].title}}
+        </div>
+        <carousel class="md:hidden" [imageList]="projects?.[selectedProject].images"></carousel>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <div class="bg-secondary rounded-full px-4 py-1 select-none" *ngFor="let skill of projects?.[selectedProject].skills">{{skill.fields.skillName}}</div>
+        </div>
+        <article *ngFor="let section of projects?.[selectedProject].description.content" class="text-textMain">
+          {{section.content[0].value}}
+        </article>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 justify-around w-full">
+          <a href="{{projects?.[selectedProject].gitLink}}" target="_blank">
+            <button class="bg-primary rounded-[15px] text-2xl py-4 size-full">
+              GitHub
+            </button>
+          </a>
+          
+          <a href="{{projects?.[selectedProject].websiteLink}}" target="_blank">
+            <button class="bg-secondary rounded-[15px] text-2xl py-4 size-full">
+              Website
+            </button>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+
+  </dialog>
+
+  <div class="fixed inset-0 backdrop-blur-sm z-10 " 
+       *ngIf="selectedProject !== null" 
+       (click)="handleModalClose()">
+  </div>
+
+</section>
+
+
+
