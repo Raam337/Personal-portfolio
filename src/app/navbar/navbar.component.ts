@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ThemeService } from '../services/theme-service.service';
 
 @Component({
   selector: 'navbar',
@@ -9,6 +10,11 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   pages: String[] = ["Home", "Projects", "Resume"];
   showDropdown = false
-  constructor(private router: Router) {}
+  darkTheme:boolean = true;
+  constructor(private router: Router, private themeService:ThemeService) {
+    themeService.signal$.subscribe(signal=>{
+      this.darkTheme = signal
+    })
+  }
 
 }
