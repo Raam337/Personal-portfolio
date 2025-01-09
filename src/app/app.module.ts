@@ -18,6 +18,7 @@ import { CarouselComponent } from './projects/carousel/carousel.component';
 import { NgxSplideModule } from 'ngx-splide';
 import { AnimateInViewDirective } from './services/animate-in-view.directive';
 import { RouteReuseStrategy } from '@angular/router';
+import { NgxContentfulRichTextModule } from 'ngx-contentful-rich-text';
 
 export function removeLoadingSpinner() {
   return () => {
@@ -45,7 +46,7 @@ export function removeLoadingSpinner() {
     CarouselComponent,
     AnimateInViewDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, NgxSplideModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, NgxSplideModule,NgxContentfulRichTextModule ],
   providers: [
     ContentfulService,
     {

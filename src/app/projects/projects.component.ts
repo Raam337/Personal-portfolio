@@ -32,6 +32,7 @@ export class ProjectsComponent implements OnInit{
         data.items.forEach( item => temp?.push(item.fields))
         temp.sort( (a,b) => a.order - b.order)
         this.projects = temp
+        console.log(temp)
       }
     })
   }
