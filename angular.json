@@ -26,7 +26,7 @@
               {
                 "glob": "404.html",
                 "input": "src",
-                "output": "/"
+                "output": "/docs"
               }
             ],
             "styles": [
@@ -52,7 +52,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/Personal-portfolio/"
+              "baseHref": "/"
             },
             "development": {
               "buildOptimizer": false,

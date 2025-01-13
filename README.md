@@ -1,27 +1,42 @@
-# RFPortfolio
+# My Portfolio Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+This project serves as the central hub to showcase information about me and my work. Built using Angular, it highlights my front-end development skills and provides a comprehensive view of my projects and abilities.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **About Me:** Detailed description about me and my professional background.
+- **Project Showcase:** A list of my projects with descriptions and visuals.
+- **Dynamic Rendering:** Dynamic updates of content for an engaging user experience.
+- **Canvas Drawing:** Creative visual elements rendered on a canvas.
+- **API Communication:** Fetches and displays data seamlessly from a CMS system.
+- **CMS Integration:** Contentful CMS used for easy updates of website information.
+- **CSS Animations:** Smooth and visually appealing animations for enhanced user experience.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Angular:** Framework for building the application's architecture.
+- **Tailwind CSS:** To design responsive and modern layouts.
+- **Contentful:** CMS platform for managing and updating content.
+- **CSS:** For styling and animations.
 
-## Build
+## Learning Outcomes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This project allowed me to:
 
-## Running unit tests
+1. Apply and deepen my knowledge of Angular in a real-world application.
+2. Explore advanced CSS animation techniques to enhance user interaction.
+3. Experiment with creative design ideas for web interfaces.
+4. Understand the integration of CMS for dynamic content management.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Website
 
-## Running end-to-end tests
+Visit [RF-DEV](www.rf-dev.site) to view deployed version.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## License
 
-## Further help
+This project is open-source and available under the [MIT License](LICENSE).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+Feedback appreciated!
+
