@@ -30,7 +30,7 @@ This project allowed me to:
 
 ## Website
 
-Visit [RF-DEV](www.rf-dev.site) to view deployed version.
+Visit [RF-DEV](https://rf-dev.site) to view deployed version.
 
 ## License
 
